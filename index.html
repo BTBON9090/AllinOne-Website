@@ -363,6 +363,7 @@
             padding: 40px;
             box-shadow: var(--shadow-lg);
             position: relative;
+            min-width: 500px;
         }
 
         /* ================= 隐私安全高亮 ================= */
@@ -474,7 +475,7 @@
             color: var(--primary);
             border-radius: 12px;
             flex-shrink: 0;
-            border: 0px solid #E0E7FF;
+            border: 1px solid #E0E7FF;
         }
 
         .detail-list-pro .text-box {
@@ -1407,15 +1408,11 @@
     <!-- 导航栏 -->
     <nav>
         <div class="logo">
-            <!-- Figma 图标简化版 -->
-            <svg width="24" height="36" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 28.5A9.5 9.5 0 1 1 19 9.5A9.5 9.5 0 0 1 19 28.5Z" fill="#1ABCFE"/>
-                <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19V57H9.5A9.5 9.5 0 0 1 0 47.5Z" fill="#0ACF83"/>
-                <path d="M19 0L9.5 0A9.5 9.5 0 0 0 0 9.5V19A9.5 9.5 0 0 0 9.5 28.5H19V0Z" fill="#F24E1E"/>
-                <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5Z" fill="#A259FF"/>
-                <path d="M38 9.5A9.5 9.5 0 0 1 28.5 19H19V0H28.5A9.5 9.5 0 0 1 38 9.5Z" fill="#FF7262"/>
-            </svg>
-            Allin<span>One</span>
+            <!-- Logo 图标 -->
+            <img src="Frame 21.png" alt="AllinOne" width="38" height="38" style="border-radius: 6px;">
+            <div class="logo-icon">
+                Allin<span>One</span>
+            </div>
         </div>
         <div class="nav-links">
             <a href="#features">核心功能</a>
@@ -1430,9 +1427,9 @@
     <!-- 首屏 Hero -->
     <header class="hero">
         <div class="hero-badge reveal">🚀 Figma 社区全新发布</div>
-        <h1 class="reveal" style="transition-delay: 0.1s;">属于你的 Figma <br><span>全能设计引擎</span></h1>
+        <h1 class="reveal" style="transition-delay: 0.1s;">Figma插件<br><span>用这一个就够啦</span></h1>
         <p class="reveal" style="transition-delay: 0.2s;">
-            告别繁琐操作。集合 AI 智能填充、极其强悍的超级选择器、一键导出 PPT 与组件清洗等数十项极客功能，让设计效率呈现指数级跃升。
+            告别繁琐操作，集合 AI 智能填充、超级选择器、一键导出 PPT 与组件清洗等数十项极客功能，让设计效率指数级跃升
         </p>
         <div class="hero-btns reveal" style="transition-delay: 0.3s;">
             <a href="https://www.figma.com/community/plugin/1579115225697225019/allinone" target="_blank" class="btn-primary" style="font-size: 18px; padding: 16px 36px;">
@@ -1514,7 +1511,7 @@
     <!-- 详细介绍区补充 2: 简易工具集 -->
     <section class="detail-section">
         <div class="detail-content">
-            <h2>化繁为简：<br>20+ 极客「简易工具」</h2>
+            <h2>20+「简易工具」化繁为简</h2>
             <p>日常设计中那些让你抓狂的“脏活累活”，我们打包成了快捷指令。点一下，省下 10 分钟。</p>
             <ul class="detail-list-pro">
                 <li>
@@ -1725,7 +1722,7 @@
     <!-- 详细介绍区补充 1: 超级选择器 -->
     <section class="detail-section reveal reverse">
         <div class="detail-content">
-            <h2>穿透图层层级：<br>极其强悍的「超级选择器」</h2>
+            <h2>穿透图层层级的「超级选择器」</h2>
             <p>Figma 原生选择器太弱？嵌套层级太深点不到？超级选择器让你如同拥有“透视眼”，秒选目标图层。</p>
             <ul class="detail-list-pro">
                 <li>
@@ -1758,7 +1755,7 @@
             </ul>
         </div>
         <!-- 替换：高性能、结构化且支持悬浮推开的按钮云 -->
-        <div class="detail-visual" style="background: transparent; border: none; padding: 0; box-shadow: none;">
+        <div class="detail-visual" style="background: transparent; border: none; padding: 0; box-shadow: none; max-width: 500px;">
             <div class="circular-cloud">
                 
                 <!-- 【中心点】 -->
@@ -1800,7 +1797,7 @@
     <!-- 详细介绍区补充 3: 全场景数据填充 (全宽画廊) -->
     <section class="data-fill-full-section reveal">
         <div class="data-fill-header">
-            <h2>全场景数据填充：预设与 AI 的完美融合</h2>
+            <h2>数据填充预设与 AI 的完美融合</h2>
             <p>从极速出图的内置本地高频字段，到应对一切边界场景的大语言模型语境生成。提供最完整的设计稿数据填充解决方案，彻底告别假文占位。</p>
         </div>
 
@@ -1925,7 +1922,7 @@
     <!-- 详细介绍区补充 6: 文字查找与替换 -->
     <section class="detail-section reveal">
         <div class="detail-content">
-            <h2>突破全局限制：<br>精准定位的「查找与替换」</h2>
+            <h2>突破全局限制，精准定位的「文本查找替换」</h2>
             <p>Figma 自带的查找往往会在全文件乱跑，替换极容易误伤。本插件专为复杂工程设计，给你手术刀级别的掌控力。</p>
             <ul class="detail-list-pro">
                 <li>
@@ -1948,7 +1945,7 @@
                 </li>
             </ul>
         </div>
-        <div class="detail-visual">
+        <div class="detail-visual" style="background: transparent; border: none; padding: 0; box-shadow: none;">
             <div class="find-replace-showcase">
                 <!-- 左侧：仿真面板 -->
                 <div class="fr-panel">
@@ -2016,7 +2013,7 @@
     <!-- 详细介绍区补充 4: 导出 PPT -->
     <section class="detail-section reverse reveal">
         <div class="detail-content">
-            <h2>打工人的救星：<br>设计稿一键生成 PPT</h2>
+            <h2>设计稿一键导出为 PPT<br>打工人的救星</h2>
             <p>还在手动把设计图一张张切片贴到 PPT 里？AllinOne 直接读取 Figma 节点信息，结构化输出可编辑的幻灯片文件。</p>
             <ul class="detail-list-pro">
                 <li>
@@ -2089,12 +2086,10 @@
         </div>
     </section>
 
-
-
     <!-- 详细介绍区 1: 命名与清理 -->
     <section class="detail-section reveal">
         <div class="detail-content">
-            <h2>强迫症福音：<br>组件清洗与规范化</h2>
+            <h2>组件清洗与规范化<br>强迫症福音</h2>
             <p>交付源文件时，最怕乱七八糟的命名和多余的隐藏图层。AllinOne 提供了一站式的「大扫除」能力。</p>
             <ul class="detail-list">
                 <li>
@@ -2122,10 +2117,10 @@
         </div>
     </section>
 
-        <!-- 详细介绍区补充 5: 设计理论基准 -->
+    <!-- 详细介绍区补充 5: 设计理论基准 -->
     <section class="detail-section reveal">
         <div class="detail-content">
-            <h2>内置大脑：<br>随时翻阅的「设计理论指南」</h2>
+            <h2>随时翻阅的「设计理论指南」</h2>
             <p>好的设计有迹可循。不用再去四处搜索零散的资料，权威的设计可用性理论就内置在你的工作台旁。</p>
             <ul class="detail-list-pro">
                 <li>
