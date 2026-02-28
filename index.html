@@ -6,6 +6,8 @@
     <title>AllinOne - 全能 Figma 设计效率超级引擎</title>
     <!-- 引入 Inter 字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 引入 Prism.js 代码高亮组件 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <style>
         /* ================= 全局变量与重置 ================= */
         :root {
@@ -83,6 +85,19 @@
             transition: all 0.3s ease;
         }
 
+        .qr-hover-container:hover .qr-popup {
+            display: block !important;
+        }
+
+        .qr-hover-container .qr-popup {
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+
         .logo {
             font-size: 24px;
             font-weight: 800;
@@ -97,10 +112,12 @@
         .nav-links {
             display: flex;
             gap: 32px;
+            flex-wrap: nowrap;
+            white-space: nowrap;
         }
 
         .nav-links a {
-            font-weight: 500;
+            font-weight: 400;
             color: var(--text-gray);
             transition: color 0.2s;
         }
@@ -205,7 +222,6 @@
             width: 100%;
             height: 600px;
             background: var(--glass-bg);
-            backdrop-filter: blur(30px);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             box-shadow: var(--shadow-lg);
@@ -407,7 +423,7 @@
         }
         .a-tag {
             padding: 12px 24px;
-            background: #F1F5F9;
+            background: #ffffff;
             border-radius: 100px;
             font-weight: 600;
             color: var(--text-dark);
@@ -430,7 +446,7 @@
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transition: all 0.2s ease-out;
         }
 
         .reveal.active {
@@ -439,7 +455,7 @@
         }
 
         /* ================= 响应式 ================= */
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
             .detail-section, .detail-section.reverse {
                 flex-direction: column;
                 text-align: center;
@@ -1414,14 +1430,30 @@
                 Allin<span>One</span>
             </div>
         </div>
-        <div class="nav-links">
-            <a href="#features">核心功能</a>
-            <a href="#ai">AI 与隐私</a>
-            <a href="#audience">适用人群</a>
+        <div class="nav-links" style="white-space: nowrap;">
+            <a href="#simple">简易工具</a>
+            <a href="#super-selector">超级选择</a>
+            <a href="#data-fill-full">内容填充</a>
+            <a href="#find-replace">文字查找与替换</a>
+            <a href="#export-ppt">导出 PPT</a>
+            <a href="#clean-naming">组件清洗</a>
+            <a href="#design-theory">设计理论</a>
         </div>
-        <a href="https://www.figma.com/community/plugin/1579115225697225019/allinone" target="_blank" class="btn-primary">
-            获取插件
-        </a>
+        <div style="display: flex; gap: 12px; align-items: center; white-space: nowrap;">
+            <div class="qr-hover-container" style="position: relative;">
+                <a href="#" class="btn-primary" style="font-size: 14px; padding: 10px 16px; cursor: pointer; white-space: nowrap;">
+                    扫码关注小红书
+                </a>
+                <div class="qr-popup" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 12px; padding: 12px; background: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); display: none; z-index: 1000; text-align: center;">
+                    <img src="xhs_qr.png" alt="小红书二维码" style="width: 100px; height: 100px; border-radius: 8px;">
+                    <p style="font-size: 11px; color: #64748B; margin-top: 8px;">扫码关注</p>
+                </div>
+            </div>
+            <a href="https://www.figma.com/@murphy666" target="_blank" style="display: flex; align-items: center; gap: 12px; padding: 8px 8px; background: white; border: 1px solid #E2E8F0; border-radius: 999px; color: #0F172A; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;">
+                <img src="head.jpeg" alt="头像" style="width: 24px; height: 24px; border-radius: 50%;">莫非
+                <div style="background-color: #ecedf1; border: 0px solid #636875; border-radius: 999px; color: #636875; padding: 2px 10px; font-size: 12px;">关注</div>
+            </a>
+        </div>
     </nav>
 
     <!-- 首屏 Hero -->
@@ -1433,30 +1465,18 @@
         </p>
         <div class="hero-btns reveal" style="transition-delay: 0.3s;">
             <a href="https://www.figma.com/community/plugin/1579115225697225019/allinone" target="_blank" class="btn-primary" style="font-size: 18px; padding: 16px 36px;">
-                免费安装使用
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                立即安装
             </a>
             <a href="#features" class="btn-outline" style="font-size: 18px; padding: 16px 36px;">探索功能</a>
         </div>
 
         <!-- 3D 界面预览 -->
         <div class="hero-mockup-wrapper reveal" style="transition-delay: 0.5s;">
-            <div class="hero-mockup">
-                <div class="mock-sidebar">
-                    <div class="mock-nav"><div class="mock-dot"></div><div class="mock-line"></div></div>
-                    <div class="mock-nav-gray"><div class="mock-dot-gray"></div><div class="mock-line-gray"></div></div>
-                    <div class="mock-nav-gray"><div class="mock-dot-gray"></div><div class="mock-line-gray" style="width: 40%"></div></div>
-                    <div class="mock-nav-gray"><div class="mock-dot-gray"></div><div class="mock-line-gray" style="width: 70%"></div></div>
-                </div>
-                <div class="mock-main">
-                    <div class="mock-header"></div>
-                    <div style="height: 150px; background: linear-gradient(135deg, #EEF2FF, #F8FAFC); border-radius: 16px; border: 1px dashed #C7D2FE;"></div>
-                    <div class="mock-grid">
-                        <div class="mock-card"></div><div class="mock-card"></div>
-                        <div class="mock-card"></div><div class="mock-card"></div>
-                    </div>
-                    <div class="mock-btn">一键执行操作</div>
-                </div>
+            <div class="hero-mockup-title" style="padding-bottom: 20px;">
+                <span style="font-size: 14px; color: #9a9a9f; padding-bottom: 12px;">可以点击按钮体验哦</span>
+            </div>
+            <div class="hero-mockup" >
+                <iframe src="chajian.html" style="width: 100%; height: 100%; border: none; border-radius: 24px;"></iframe>
             </div>
         </div>
     </header>
@@ -1509,7 +1529,7 @@
     </section>
 
     <!-- 详细介绍区补充 2: 简易工具集 -->
-    <section class="detail-section">
+    <section id="simple" class="detail-section">
         <div class="detail-content">
             <h2>20+「简易工具」化繁为简</h2>
             <p>日常设计中那些让你抓狂的“脏活累活”，我们打包成了快捷指令。点一下，省下 10 分钟。</p>
@@ -1720,7 +1740,7 @@
     </section>
 
     <!-- 详细介绍区补充 1: 超级选择器 -->
-    <section class="detail-section reveal reverse">
+    <section id="super-selector" class="detail-section reverse reveal">
         <div class="detail-content">
             <h2>穿透图层层级的「超级选择器」</h2>
             <p>Figma 原生选择器太弱？嵌套层级太深点不到？超级选择器让你如同拥有“透视眼”，秒选目标图层。</p>
@@ -1795,7 +1815,7 @@
     </section>
 
     <!-- 详细介绍区补充 3: 全场景数据填充 (全宽画廊) -->
-    <section class="data-fill-full-section reveal">
+    <section id="data-fill-full" class="data-fill-full-section reveal">
         <div class="data-fill-header">
             <h2>数据填充预设与 AI 的完美融合</h2>
             <p>从极速出图的内置本地高频字段，到应对一切边界场景的大语言模型语境生成。提供最完整的设计稿数据填充解决方案，彻底告别假文占位。</p>
@@ -1919,8 +1939,86 @@
         </div>
     </section>
 
+    <!-- 详细介绍区 2: AI 与隐私保护 -->
+    <section id="ai" class="detail-section reveal">
+        <div class="detail-content">
+            <h2>前台接入 AI 大模型<br>坚守绝对的数据隐私</h2>
+            <p>严格遵循隐私保护原则，用户数据仅存储在本地，不向任何第三方服务器发送，无任何数据收集或分析行为。</p>
+            <ul class="detail-list-pro">
+                <li>
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <div class="text-box">
+                        <h4>API Key 仅本地存储，不上传到任何第三方服务器</h4>
+                        <p>API Key 仅在本地浏览器中存储（使用 Figma 的 clientStorage ），发送请求时直接从本地读取 aiConfig.key，所有请求都直接发送到用户配置的 AI 服务提供商（如 OpenAI、Claude 等）</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                    </div>
+                    <div class="text-box">
+                        <h4>无任何数据收集或分析代码</h4>
+                        <p>所有用户配置（包括 API Key）都存储在 Figma 提供的本地存储中，插件仅在本地处理用户数据，不向任何第三方服务器发送，无任何代码用于收集、分析或传输用户数据</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l2-9 5 18 3-9h6"></path></svg>
+                    </div>
+                    <div class="text-box">
+                        <h4>网络访问权限透明</h4>
+                        <p>网络权限明确说明仅用于连接 AI API 和加载外部库，无隐藏的网络请求或数据传输，所有网络请求都对用户可见且可追溯</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="detail-visual" style="display: flex; gap: 16px; align-items: stretch; padding-bottom: 80px;">
+            <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 14px; color: #64748B; margin-bottom: 6px;">javascript</div>
+                <pre style="margin: 0; height: 100%; font-size: 12px; line-height: 1.4;"><code class="language-javascript">const requestBody = {
+    // 请求体内容
+};
+const res = await fetch(
+  `${aiConfig.baseUrl}/chat/completions`,
+  {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${aiConfig.key}`
+    },
+    body: JSON.stringify(requestBody)
+  }
+);</code></pre>
+            </div>
+            <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 14px; color: #64748B; margin-bottom: 6px;">typescript</div>
+                <pre style="margin: 0; height: 100%; font-size: 12px; line-height: 1.4;"><code class="language-typescript">case 'save-storage': {
+    await figma.clientStorage
+        .setAsync(msg.key, msg.value);
+    figma.notify("配置已保存");
+    figma.ui.postMessage({
+        type: 'storage-saved',
+        key: msg.key,
+        value: msg.value
+    });
+    break;
+}</code></pre>
+            </div>
+            <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 14px; color: #64748B; margin-bottom: 6px;">json</div>
+                <pre style="margin: 0; height: 100%; font-size: 12px; line-height: 1.4;"><code class="language-json">
+"networkAccess": {
+    "allowedDomains": ["*"],
+    "reasoning": "This plugin connects to AI APIs and loads external libraries (JSZip, PptxGenJS) from CDNs."
+}
+        </code></pre>
+            </div>
+        </div>
+    </section>
+    
     <!-- 详细介绍区补充 6: 文字查找与替换 -->
-    <section class="detail-section reveal">
+    <section id="find-replace" class="detail-section reverse reveal">
         <div class="detail-content">
             <h2>突破全局限制，精准定位的「文本查找替换」</h2>
             <p>Figma 自带的查找往往会在全文件乱跑，替换极容易误伤。本插件专为复杂工程设计，给你手术刀级别的掌控力。</p>
@@ -2011,7 +2109,7 @@
     </section>
 
     <!-- 详细介绍区补充 4: 导出 PPT -->
-    <section class="detail-section reverse reveal">
+    <section id="export-ppt" class="detail-section reveal">
         <div class="detail-content">
             <h2>设计稿一键导出为 PPT<br>打工人的救星</h2>
             <p>还在手动把设计图一张张切片贴到 PPT 里？AllinOne 直接读取 Figma 节点信息，结构化输出可编辑的幻灯片文件。</p>
@@ -2087,7 +2185,7 @@
     </section>
 
     <!-- 详细介绍区 1: 命名与清理 -->
-    <section class="detail-section reveal">
+    <section id="clean-naming" class="detail-section reverse reveal">
         <div class="detail-content">
             <h2>组件清洗与规范化<br>强迫症福音</h2>
             <p>交付源文件时，最怕乱七八糟的命名和多余的隐藏图层。AllinOne 提供了一站式的「大扫除」能力。</p>
@@ -2107,7 +2205,7 @@
             </ul>
         </div>
         <div class="detail-visual">
-            <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; flex-direction:column; gap:10px; padding:20px 0;">
                 <div style="background:#F1F5F9; padding:12px; border-radius:8px; font-family:monospace;">btn-primary-hover</div>
                 <div style="text-align:center; color:var(--primary);">↓ Snake Case</div>
                 <div style="background:#EEF2FF; padding:12px; border-radius:8px; font-family:monospace; color:var(--primary); font-weight:bold;">btn_primary_hover</div>
@@ -2118,7 +2216,7 @@
     </section>
 
     <!-- 详细介绍区补充 5: 设计理论基准 -->
-    <section class="detail-section reveal">
+    <section id="design-theory" class="detail-section reveal">
         <div class="detail-content">
             <h2>随时翻阅的「设计理论指南」</h2>
             <p>好的设计有迹可循。不用再去四处搜索零散的资料，权威的设计可用性理论就内置在你的工作台旁。</p>
@@ -2180,39 +2278,6 @@
         </div>
     </section>
 
-    <!-- 详细介绍区 2: AI 与隐私保护 -->
-    <section id="ai" class="detail-section reverse reveal">
-        <div class="detail-content">
-            <h2>接入 AI 大模型，<br>并坚守绝对的数据隐私</h2>
-            <p>利用对话模式，快速生成高档小区名称、真实电商评价等测试数据。同时，我们极其重视你的数据安全。</p>
-            <ul class="detail-list">
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    <strong>本地直连模式：</strong>我们没有后台服务器中转。
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
-                    <strong>密钥不出域：</strong>你配置的 API Key 仅加密保存在 Figma 客户端本地缓存中（clientStorage）。
-                </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    <strong>灵活自定义：</strong>支持自定义 Base URL 与模型名称（Model）。
-                </li>
-            </ul>
-        </div>
-        <div class="detail-visual">
-            <div style="border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px;">
-                <p style="font-size:12px; color:#64748B; margin-bottom: 8px;">API 地址 (Base URL)</p>
-                <div style="background:#F8FAFC; padding:10px; border-radius:6px; margin-bottom: 16px; font-size:14px;">https://api.example.com/v1</div>
-                
-                <p style="font-size:12px; color:#64748B; margin-bottom: 8px;">API Key</p>
-                <div style="background:#F8FAFC; padding:10px; border-radius:6px; margin-bottom: 20px; font-size:14px;">sk-*****************************</div>
-                
-                <div style="background:var(--primary); color:white; padding:12px; border-radius:8px; text-align:center; font-weight:600;">保存配置 (仅本地存储)</div>
-            </div>
-        </div>
-    </section>
-
     <!-- 适用人群 -->
     <section id="audience" class="reveal" style="padding: 100px 5%; max-width: 1000px; margin: 0 auto; text-align: center;">
         <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 20px;">谁需要 AllinOne？</h2>
@@ -2232,17 +2297,30 @@
         <p style="font-size: 20px; color: var(--text-gray); margin-bottom: 40px;">完全免费，只为极致效率而生。</p>
         <a href="https://www.figma.com/community/plugin/1579115225697225019/allinone" target="_blank" class="btn-primary" style="font-size: 20px; padding: 20px 48px;">
             在 Figma 中打开
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
         </a>
+        <div style="margin-top: 48px;">
+            <img src="xhs_qr.png" alt="小红书二维码" style="width: 120px; height: 120px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <p style="font-size: 14px; color: var(--text-gray); margin-top: 12px;">关注小红书，设计躺平学</p>
+        </div>
     </section>
 
     <!-- 页脚 -->
     <footer style="text-align: center; padding: 40px; border-top: 1px solid #E2E8F0; color: var(--text-light); font-size: 14px;">
-        <p>© 2024 AllinOne Figma Plugin. All rights reserved.</p>
+        <p>© 2026 AllinOne Figma Plugin. All rights reserved.</p>
     </footer>
 
     <!-- 引入 VanillaTilt.js (用于实现极客范的 3D Z轴倾斜交互) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- 引入 Prism.js 代码高亮组件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
     
     <!-- 交互脚本 -->
     <script>
